@@ -14,7 +14,7 @@ int marbleBag[MAX] = {1, 2, 4, 7};
 int marbleBagSize = 4;
 
 
-
+// Add x marbles with y amount
 void addMarble(int marbleSize, int marbleAmt){
     for(int i = 0; i < marbleAmt; i++){
         marbleBag[marbleBagSize] = marbleSize;
@@ -24,6 +24,7 @@ void addMarble(int marbleSize, int marbleAmt){
     printf("%i marble(s) added!\n\n", marbleAmt);
 }
 
+// Remove x marble from the array
 void removeMarble(int marbleLoc){
     if (marbleLoc <= marbleBagSize){
         int tempMarble = marbleBag[marbleLoc];
@@ -38,11 +39,13 @@ void removeMarble(int marbleLoc){
     }
 }
 
+
+// Provide UI
 int main(){
     while (true){
         int choice = 0;
         printf("Marbles: ");
-        for(int i = 0; i < marbleBagSize; i++){
+        for (int i = 0; i < marbleBagSize; i++){
             if (i == marbleBagSize - 1){
                 printf("%i.", marbleBag[i]);
             }
@@ -64,7 +67,7 @@ int main(){
             addMarble(tempMarbleSize, tempMarbleAmt);
 
         }
-        else if(choice == 2){
+        else if (choice == 2){
             int tempRemoveLoc;
             while (true){
                 printf("Please enter the location you'd like to remove (First being 1): ");
@@ -72,12 +75,10 @@ int main(){
                 if (tempRemoveLoc >= 1 && tempRemoveLoc <= marbleBagSize){
                     removeMarble(tempRemoveLoc);
                     break;
-                }
-                
+                }  
             }
-            
         }
-        else if(choice == 3){
+        else if (choice == 3){
             printf("Goodbye!");
             exit(0);
         }
@@ -86,7 +87,10 @@ int main(){
         }
     }
     return 0;
-
 }
 
+
+// Program wouldn't run unless I did this?
+
+// Just "main();" wouldn't work.
 int _ = main();
